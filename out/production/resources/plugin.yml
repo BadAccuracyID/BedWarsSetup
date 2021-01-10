@@ -1,32 +1,17 @@
 name: BedWarsSetup
 main: me.moonlight.bedwarssetup.Main
-version: 1.0.2
+version: 1.0.5
 author: _MoonLightz
 depend: [BedWars1058]
 
 permissions:
-  bedwarssetup.debug:
-    description: Allow the player to activate/deactivate debug
-    default: op
-  bedwarssetup.give:
-    description: Allow the player to give a setup item
-    default: op
-  bedwarsssetup.help:
-    description: Allow the player to access the help command
+  bedwarssetup.setup:
+    description: Allow the player to use setup items
     default: op
 
 commands:
-  debug:
-    description: Turn on/off debug system
-    usage: /<command> <true | false>
-    permission: bedwarssetup.debug
-  giveItem:
-    description: Give an item based on the id
-    usage: /<command> <item ID>
-    permission: bedwarssetup.give
   bedwarssetup:
     description: BedWarsSetup main command
     usage: /<command>
     aliases: [bs, bedwarss, bsetup]
-    permission: bedwarssetup.help
-
+    permission: bedwarssetup.setup
