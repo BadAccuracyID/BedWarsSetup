@@ -20,15 +20,15 @@ set the debug to true or false, debug is disabled for the time being
 ### Setup Items
 These items are used to make your setup experience with BedWars1058 easier!
 They can be used by **right clicking** or **left clicking** them, you can see their usage in their lores.
-Please note that some of these item can only be used during a Arena Setup Session ([BedWars1058](https://www.spigotmc.org/resources/bedwars1058-the-most-modern-bedwars-plugin-bungee-auto-scale-bungee-legacy-multiarena-shared.50942/))
+Please note that some of these item can only be used during an Arena Setup Session ([BedWars1058](https://www.spigotmc.org/resources/bedwars1058-the-most-modern-bedwars-plugin-bungee-auto-scale-bungee-legacy-multiarena-shared.50942/))
 Here's some further detail:
 #### Setup Diamond (Item: Diamond)
-- **(RIGHT CLICK)** Round up your yaw to 0, 90, 180, 270 (North, East, South, West) depending on your current yaw (e. g. if your current yaw is 60,  then your yaw will be set to 90 or to east)
+- **(RIGHT CLICK)** Round up your yaw to 0, 90, 180, 270 (North, East, South, West) depending on your current yaw (e.g. if your current yaw is 60,  then your yaw will be set to 90 or to east)
 - **(LEFT CLICK)** Teleport you to the middle of the block you are standing on.
   ID: SETUP_DIAMOND
 #### Arena Cookie (Item: Cookie) **SETUP SESSION ONLY**
 - **(RIGHT CLICK)** Set the waiting spawn of the current arena to your current location.
-- **(LEFT CLICK)** Set the spectactor spawn of the current arena to your current location.
+- **(LEFT CLICK)** Set the spectator spawn of the current arena to your current location.
   ID: ARENA_COOKIE
 #### Waiting Pos Tool (Item: Feather) **SETUP SESSION ONLY**
 - **(RIGHT CLICK)** Set the first waiting pos of the current arena.
