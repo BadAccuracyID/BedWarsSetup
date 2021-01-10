@@ -8,6 +8,9 @@ import java.util.List;
 
 import static me.moonlight.bedwarssetup.util.MethodUtils.color;
 
+/**
+ * Sub command template.
+ */
 public abstract class AbstractSubCommand {
 
     @Getter public String name;
@@ -22,6 +25,7 @@ public abstract class AbstractSubCommand {
         this.playerOnly = playerOnly;
     }
 
+    // called when the subcommand is executed
     public abstract void execute(CommandSender commandSender, String[] args);
 
     public abstract List<String> tabComplete(CommandSender sender, Command command, String alias, List<String> args);

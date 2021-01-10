@@ -1,15 +1,13 @@
 package me.moonlight.bedwarssetup.item;
 
 import me.moonlight.bedwarssetup.Main;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import static me.moonlight.bedwarssetup.util.MethodUtils.*;
+import static me.moonlight.bedwarssetup.util.MethodUtils.EMPTY_LINE;
+import static me.moonlight.bedwarssetup.util.MethodUtils.roundYaw;
 
 /**
  * Setup Diamond item class
@@ -21,7 +19,8 @@ import static me.moonlight.bedwarssetup.util.MethodUtils.*;
 public class SetupDiamond extends AbstractItem {
 
     public SetupDiamond(Main main) {
-        super(main, "SETUP_DIAMOND", Material.DIAMOND, 1, true, false, "&aSetup Diamond",
+        super(main, "SETUP_DIAMOND", Material.DIAMOND, 1, true, false,
+                "&aSetup Diamond", false,
                 "&6Mid-block teleport &e&lRIGHT CLICK",
                 "&7Teleport to a middle of the block",
                 "&7that you are currently on.",

@@ -16,7 +16,6 @@ import static me.moonlight.bedwarssetup.util.MethodUtils.sendPlayerMessage;
 
 /**
  * Main Bedwars Setup (/bs) Command
- *
  * This command is the main command that is
  * used for other {@link AbstractSubCommand}
  */
@@ -31,20 +30,26 @@ public class BedwarsSetupCommand extends AbstractCommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
+        // arguments as list
         List<String> arguments = new ArrayList<>(Arrays.asList(args));
-        if(arguments.toArray().length == 0 || arguments.isEmpty()) {
+        // check if the argument is empty, if so execute help command
+        if(args.length == 0 || arguments.isEmpty()) {
             subCommandManager.executeCommand("help", sender, null);
             return;
         }
         String subCommandName = arguments.get(0);
+        // remove the sub command from the arguments
         arguments.remove(0);
+        // to check if the command exists
         AtomicBoolean commandFound = new AtomicBoolean(false);
+        // loop through every subcommand
         subCommandManager.getSubCommands().stream()
                 .filter(subCommand -> subCommand.getName().equalsIgnoreCase(subCommandName))
                 .findFirst().ifPresent(subCommand -> {
                     subCommandManager.executeCommand(subCommand.getName(), sender, arguments.toArray(new String[0]));
                     commandFound.set(true);
                 });
+        // if command doesn't exist
         if(!(commandFound).get()) {
             sendPlayerMessage(sender, Lang.ERROR_PLAYER_COMMAND_DOESNT_EXIST);
         }

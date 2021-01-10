@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import static me.moonlight.bedwarssetup.util.MethodUtils.color;
 
+// language enum class for messages
 public enum Lang {
 
     ERROR_PLAYER_ONLY_COMMAND("&cThis is a player only command!"),

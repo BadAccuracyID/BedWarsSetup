@@ -4,7 +4,6 @@ import me.moonlight.bedwarssetup.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.Inventory;
@@ -14,8 +13,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -66,6 +63,14 @@ public class MethodUtils {
         }
     }
 
+    /**
+     * send the command sender a message from {@link Lang}
+     * that requires arguments (by replacing) {argNumber} to
+     * the provided arguments
+     * @param sender the sender to send the message
+     * @param lang the Lang message to send
+     * @param args the arguments
+     */
     public static void sendPlayerMessage(CommandSender sender, Lang lang, String... args) {
         for (int i = 0, argsLength = args.length; i < argsLength; i++) {
             String arg = args[i];
@@ -96,6 +101,16 @@ public class MethodUtils {
         }
     }
 
+    /**
+     * create an {@link ItemStack} from the given arguments
+     * @param material the material of the itemStack to create
+     * @param amount the amount of items in the stack
+     * @param glow determine if the item is glowing or not (enchant glow)
+     * @param unbreakable determine if the item is unbreakable
+     * @param displayName the name of the item to create
+     * @param rawLores the item lores
+     * @return the created item
+     */
     public static ItemStack createItem(
             Material material,
             int amount,
@@ -127,6 +142,13 @@ public class MethodUtils {
         return tempItem;
     }
 
+    /**
+     * set the inventory border to the
+     * item stack provided
+     * @param inventory the inventory to set the border to
+     * @param border the item border to set
+     * @return the final inventory with borders
+     */
     public static Inventory setInventoryBorder(Inventory inventory, ItemStack border) {
         for(int i = 0; i < 54; i++) {
             if((i <= 9) || ((i + 1) % 9 == 0) || ((i) % 9 == 0) || (i >= 46)) {

@@ -23,19 +23,14 @@ public class GiveSubCommand extends AbstractSubCommand {
 
     @Override
     public void execute(CommandSender sender, String[] args) {
-        debug("Executing Give Sub Command");
         try {
-            debug("Executing Give Sub Command");
             if(main.getItemManager().getItem(args[0]) == null) {
-                debug("The item is id in the argument is invalid!");
                 sender.sendMessage(color("&cInvalid item name!"));
                 return;
             }
-            debug("the item id is valid.. giving the player item..");
             main.getItemManager().giveItem(main.getItemManager().getItem(args[0]), (Player) sender);
         } catch (ArrayIndexOutOfBoundsException e) {
-            debug("Catched ArrayIndexOutOfBoundException!");
-            sendPlayerMessage(sender, Lang.ERROR_PLAYER_NOT_ENOUGH_ARGUMENT);
+            sendPlayerMessage(sender, Lang.ERROR_PLAYER_NOT_ENOUGH_ARGUMENT, this.getName() + " " + this.getArguments());
         }
     }
 

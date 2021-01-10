@@ -11,22 +11,26 @@ import java.util.*;
 
 import static me.moonlight.bedwarssetup.util.MethodUtils.sendPlayerMessage;
 
+/**
+ * Set the current setup team, which is
+ * used in the setup items
+ */
 public class SetTeamSubCommand extends AbstractSubCommand {
 
-    private final Main main;
     @Getter public Map<UUID, String> setupTeams = new HashMap<>();
 
     public SetTeamSubCommand(Main main) {
         super("setteam", "Set your current setup team", "<teamName>", true);
-        this.main = main;
     }
 
     @Override
     public void execute(CommandSender commandSender, String[] args) {
         try {
+            // put the player to the setup map
             this.setupTeams.put(((Player) commandSender).getUniqueId(), args[0]);
             sendPlayerMessage(commandSender, "&aCurrent team's name has been set to: " + args[0]);
         } catch(ArrayIndexOutOfBoundsException e) {
+            // if player doesn't input any team name
             sendPlayerMessage(commandSender, Lang.ERROR_PLAYER_NOT_ENOUGH_ARGUMENT, "/" + (this.getName() + " " + this.getArguments()));
         }
     }

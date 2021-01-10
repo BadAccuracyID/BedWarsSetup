@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static me.moonlight.bedwarssetup.util.MethodUtils.debug;
-
 /**
  * Sub Command Manager - Manages sub commands
  */
@@ -52,10 +50,21 @@ public class SubCommandManager {
         }
     }
 
+    /**
+     * execute a sub command
+     * @param command the sub command to execute
+     * @param commandSender the sender of the command
+     * @param args the arguments to pass
+     */
     public void executeCommand(AbstractSubCommand command, CommandSender commandSender, String[] args) {
         command.execute(commandSender, args);
     }
 
+    /**
+     * find a sub command by their name
+     * @param commandName the name of the sub command to find
+     * @return the found sub command, null if not found
+     */
     public AbstractSubCommand findCommand(String commandName) {
         return subCommands.stream().filter(subCommand -> subCommand.getName().equalsIgnoreCase(commandName)).findFirst().orElse(null);
     }

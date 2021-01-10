@@ -1,5 +1,6 @@
 package me.moonlight.bedwarssetup.item;
 
+import com.andrei1058.bedwars.api.BedWars;
 import lombok.Getter;
 import me.moonlight.bedwarssetup.Main;
 import org.bukkit.Material;
@@ -15,16 +16,22 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
-import static me.moonlight.bedwarssetup.util.MethodUtils.color;
-import static me.moonlight.bedwarssetup.util.MethodUtils.debug;
+import static me.moonlight.bedwarssetup.util.MethodUtils.*;
 
-// Item tempalte
+/**
+ * Setup item template, including
+ * item builder, listeners for right & left clicks
+ * (when using the item)
+ */
 public abstract class AbstractItem implements Listener {
 
     // the item in ItemStack
     @Getter private ItemStack item;
     // the item id
     @Getter public String itemId;
+    // determine if the item is only available in a setup session
+    private final boolean setupOnly;
+    private final BedWars bedWars;
 
     public AbstractItem(
             Main main,
@@ -34,6 +41,7 @@ public abstract class AbstractItem implements Listener {
             boolean glow,
             boolean unbreakable,
             String displayName,
+            boolean setupOnly,
             String... rawLores
     ) {
         // temp item
@@ -60,20 +68,30 @@ public abstract class AbstractItem implements Listener {
 
         this.item = tempItem;
         this.itemId = id;
+        this.setupOnly = setupOnly;
+        this.bedWars = main.getBedWars();
     }
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
+        // if the item that the player's interacting is not the same with the current item
         if((event.getItem() == null)  || !(event.getItem().isSimilar(this.item))) return;
+        // if the item is setup only
+        if(setupOnly) {
+            // check if the player is in a setup session
+            if(!(bedWars.isInSetupSession(event.getPlayer().getUniqueId()))) {
+                sendPlayerMessage(event.getPlayer(), "&cYou're not on a setup session!");
+                return;
+            }
+        }
+        // call the method
         switch(event.getAction()) {
             case LEFT_CLICK_AIR:
             case LEFT_CLICK_BLOCK:
-                debug("Handling PlayerInteractEvent for: " + event.getPlayer().getName() + " for interacting with: " + this.getItemId() + " (LEFT CLICK)");
                 onItemLeftClick(event, event.getPlayer());
                 break;
             case RIGHT_CLICK_BLOCK:
             case RIGHT_CLICK_AIR:
-                debug("Handling PlayerInteractEvent for: " + event.getPlayer().getName() + " for interacting with: " + this.getItemId() + " (RIGHT CLICK)");
                 onItemRightClick(event, event.getPlayer());
                 break;
         }

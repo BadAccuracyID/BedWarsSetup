@@ -9,13 +9,18 @@ import static me.moonlight.bedwarssetup.util.MethodUtils.EMPTY_LINE;
 
 
 /**
- * Arena Cookie Item Class
+ * Arena Cookie
+ *
+ * Setup item that set the waiting spawn of
+ * the current arena (right click) and set the
+ * spectator spawn of the current arena (left click).
  */
 public class ArenaCookie extends AbstractItem {
 
 
     public ArenaCookie(Main main) {
-        super(main, "ARENA_COOKIE", Material.COOKIE, 1, true, false, "&5Arena Cookie",
+        super(main, "ARENA_COOKIE", Material.COOKIE, 1, true, false,
+                "&5Arena Cookie", true,
                 "&6Set Waiting Spawn &e&lRIGHT CLICK",
                 "&7Set the arena's waiting spawn on",
                 "&7your current location.",
@@ -28,12 +33,14 @@ public class ArenaCookie extends AbstractItem {
 
     @Override
     public void onItemRightClick(PlayerInteractEvent event, Player player) {
+        // self explanatory
         event.setCancelled(true);
         player.performCommand("bw setWaitingSpawn");
     }
 
     @Override
     public void onItemLeftClick(PlayerInteractEvent event, Player player) {
+        // self explanatory
         event.setCancelled(true);
         player.performCommand("bw setSpectSpawn");
     }
