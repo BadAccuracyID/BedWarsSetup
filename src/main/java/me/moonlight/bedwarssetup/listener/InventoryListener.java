@@ -15,6 +15,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import static me.moonlight.bedwarssetup.util.MethodUtils.sendPlayerMessage;
 import static me.moonlight.bedwarssetup.util.MethodUtils.setInventoryBorder;
 
 // inventory listener for the menu command
@@ -38,6 +39,11 @@ public class InventoryListener implements Listener {
             // item to close the GUI
             if (MenuSubCommand.getCloseItem().isSimilar(clicked)) {
                 player.closeInventory();
+            }
+            if(MenuSubCommand.getFurtherInfoItem().isSimilar(clicked)) {
+                player.closeInventory();
+                player.playSound(player.getLocation(), Sound.NOTE_PLING, 1f, 2f);
+                sendPlayerMessage(player, "&7For further information: https://github.com/KJosh541/BedWarsSetup/blob/main/README.md");
             }
             // item to open the items GUI
             else if (MenuSubCommand.getGiveItem().isSimilar(event.getInventory().getItem(event.getRawSlot()))) {
