@@ -35,7 +35,7 @@ Here's some further detail:
 - **(LEFT CLICK)** Set the second waiting pos of the current arena.
   ID: WAITING_POS_TOOL
 #### Set Spawn Tool (Item: Dragon Egg) **SETUP SESSION ONLY**
-- **(RIGHT CLICK)** Set the current team's spawn (set your team [here](https://github.com/KJosh541/BedWarsSetup/#bs-setteam-teamname) command)
+- **(RIGHT CLICK)** Set the current team's spawn (set your team [here](https://github.com/KJosh541/BedWarsSetup/#bs-setteam-teamname))
 #### Set Shop and Upgrade Tool (Item: Emerald) **SETUP SESSION ONLY**
 - **(RIGHT CLICK)** Set the current team's shop to your current location
 - **(LEFT CLICK)** Set the current team's upgrade to your location
