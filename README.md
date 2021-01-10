@@ -6,7 +6,7 @@ BedWars arena using [BedWars1058 plugin](https://www.spigotmc.org/resources/bedw
 ### Setup Commands
 #### /bs - Main setup commands, containing subcommands:
 ##### /bs giveitem \<itemId>
-give a setup item based on their ID (Item ID can be found [here](https://github.com/KJosh541/KJosh541/blob/master/README.md#set-spawn-tool-item-dragon-egg))
+give a setup item based on their ID (Item ID can be found [here](https://github.com/KJosh541/BedWarsSetup/#setup-items))
 ##### /bs setteam \<teamName>
 set the current setup team, used in some setup items
 ##### /bs help
@@ -35,7 +35,7 @@ Here's some further detail:
 - **(LEFT CLICK)** Set the second waiting pos of the current arena.
   ID: WAITING_POS_TOOL
 #### Set Spawn Tool (Item: Dragon Egg) **SETUP SESSION ONLY**
-- **(RIGHT CLICK)** Set the current team's spawn (set your team [here](https://github.com/KJosh541/KJosh541/blob/master/README.md#bs-setteam-) command)
+- **(RIGHT CLICK)** Set the current team's spawn (set your team [here](https://github.com/KJosh541/BedWarsSetup/#bs-setteam-teamname) command)
 #### Set Shop and Upgrade Tool (Item: Emerald) **SETUP SESSION ONLY**
 - **(RIGHT CLICK)** Set the current team's shop to your current location
 - **(LEFT CLICK)** Set the current team's upgrade to your location
