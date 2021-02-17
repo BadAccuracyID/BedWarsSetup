@@ -84,7 +84,7 @@ public class MethodUtils {
      */
     public static int roundYaw(float yaw) {
         if (yaw < 0) {
-            yaw += 360.0;
+            yaw += 360.0f;
         }
         if (0 <= yaw && yaw < 45) {
             return 0;
