@@ -26,10 +26,10 @@ public class TeamGeneratorTool extends AbstractItem {
                 "&7Set the current team's generator",
                 "&7on your current location ",
                 EMPTY_LINE,
-                "&6Set Team Kill Spawn &e&lLEFT CLICK",
+                "&6Set Team Kill Drops &e&lLEFT CLICK",
                 "&7Set the current selected team's",
-                "&7spawn point when killed to",
-                "&7your current location"
+                "&7item spawn point when killed and eliminated",
+                "&7to your current location"
         );
         this.main = main;
     }
@@ -55,6 +55,6 @@ public class TeamGeneratorTool extends AbstractItem {
             sendPlayerMessage(player, "&cYou haven't set your setup team name! Do /bs setteam <teamName>!");
             return;
         }
-        player.performCommand("bw setSpawn " + teamName);
+        player.performCommand("bw setKillDrops " + teamName);
     }
 }

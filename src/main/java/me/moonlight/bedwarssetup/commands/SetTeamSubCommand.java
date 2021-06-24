@@ -28,6 +28,7 @@ public class SetTeamSubCommand extends AbstractSubCommand {
         try {
             // put the player to the setup map
             this.setupTeams.put(((Player) commandSender).getUniqueId(), args[0]);
+            ((Player) commandSender).performCommand("bw createTeam " + args[0] + " " + args[0]);
             sendPlayerMessage(commandSender, "&aCurrent team's name has been set to: " + args[0]);
         } catch(ArrayIndexOutOfBoundsException e) {
             // if player doesn't input any team name
